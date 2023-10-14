@@ -2,8 +2,7 @@ pipeline {
     agent any
     
     tools {
-        jdk 'jdk11'
-        maven 'maven3'
+         maven 'maven3'
     }
 
     stages {
@@ -27,7 +26,9 @@ pipeline {
             steps {
                    script {
                        // This step should not normally be used in your script. Consult the inline help for details.
-                          withDockerRegistry(credentialsId: 'f3a61d0f-85f2-4f8c-95b0-8d4f75941e90', toolName: 'Docker') {
+                       withDockerRegistry(credentialsId: '75f6c593-f2dc-4681-89d9-56156439bd9c', url: 'https://hub.docker.com/') {
+                         // some block
+                           }
                             sh "docker build ."
                             sh "docker tag my-apache2 mahiramesh2617/mynginx:latest"
                             sh "docker push mahiramesh2617/mynginx:latest "
