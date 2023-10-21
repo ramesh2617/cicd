@@ -30,8 +30,8 @@ pipeline {
                          // some block
                            }
                             sh "docker build ."
-                            sh "docker tag my-apache2 mahiramesh2617/mynginx:latest"
-                            sh "docker push mahiramesh2617/mynginx:latest "
+                            sh "docker tag my-apache2 mahiramesh2617/myargo mynginx:latest"
+                            sh "docker push mahiramesh2617/myargo mynginx:latest "
                         }
                     } 
             }
