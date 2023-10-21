@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-               git branch: 'main', changelog: false, poll: false, url: 'https://github.com/ramesh2617/SpringBoot-WebApplication.git'
+               git branch: 'main', changelog: false, poll: false, url: 'https://github.com/ramesh2617/cicd.git'
             }
         }
          stage('Code Compile') {
