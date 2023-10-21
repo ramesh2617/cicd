@@ -7,17 +7,7 @@ pipeline {
                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/ramesh2617/Jenkins-Zero-To-Hero.git'
             }
         }
-         stage('Static Code Analysis') {
-      environment {
-        SONAR_URL = "http://172.21.16.1:9099/"
-      }
-      steps {
-        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-          sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
-          sh 'exit 0'
-        }
-      }
-    }
+       
     stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "mahiramesh2617/myargo:${BUILD_NUMBER}"
